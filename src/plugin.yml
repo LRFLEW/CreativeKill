@@ -1,0 +1,11 @@
+name: CreativeKill
+main: com.LRFLEW.bukkit.ck.CreativeKill
+version: 0.3
+website: http://lrflew.ismywebsite.com/
+author: LRFLEW
+description: >
+             This plugin allows players who are in creative mode to instantly kill any mobs
+permissions:
+  creativekill:
+    description: gives players in creative mode instant mob kills
+    default: true
