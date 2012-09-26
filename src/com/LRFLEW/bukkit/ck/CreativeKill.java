@@ -7,7 +7,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.vehicle.VehicleDamageEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class CreativeKill extends JavaPlugin implements Listener {
@@ -24,14 +23,5 @@ public class CreativeKill extends JavaPlugin implements Listener {
 		if (!player.hasPermission("creativekill")) return;
 		if (e.getEntity() instanceof Player) return;
 		((LivingEntity)e.getEntity()).setHealth(0);
-	}
-	
-	@EventHandler (priority = EventPriority.HIGHEST, ignoreCancelled = true)
-	public void vehicleDamage(VehicleDamageEvent e) {
-		if (!(e.getAttacker() instanceof Player)) return;
-		Player player = (Player)e.getAttacker();
-		if (!player.getGameMode().equals(GameMode.CREATIVE)) return;
-		if (!player.hasPermission("creativekill")) return;
-		e.getVehicle().remove();
 	}
 }
