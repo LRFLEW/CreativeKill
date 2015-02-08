@@ -17,6 +17,7 @@ public class CreativeKill extends JavaPlugin implements Listener {
 	
 	@EventHandler (priority = EventPriority.HIGHEST, ignoreCancelled = true)
 	public void entityDamageEntity(EntityDamageByEntityEvent e) {
+		if (!(e.getEntity() instanceof LivingEntity)) return;
 		if (!(e.getDamager() instanceof Player)) return;
 		Player player = (Player)e.getDamager();
 		if (!player.getGameMode().equals(GameMode.CREATIVE)) return;
